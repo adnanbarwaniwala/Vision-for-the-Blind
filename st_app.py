@@ -13,7 +13,6 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import HumanMessage, AIMessage
 from extra_info import vision_model_system_prompt, description
 import pyttsx3
-import os
 
 # Setting the page title
 st.set_page_config(
@@ -69,21 +68,17 @@ def model_response_to_audio(response):
         engine.runAndWait()
     st.markdown("**AUDIO GENERATED**")
     st.write(f"{'*' * 80}")
-    if not os.path.exists('model_response.wav'):
-        st.write('Error: model_response.wav file was not created.')
 
 
 def autoplay_audio(file_path):
     import base64
-    if not os.path.exists(file_path):
-        st.write(f'Error: {file_path} file does not exist.')
-        return
     with st.spinner('Final audio processing...'):
         with open(file_path, "rb") as audio_file:
             audio_bytes = audio_file.read()
         base64_audio = base64.b64encode(audio_bytes).decode("utf-8")
         audio_html = f'<audio src="data:audio/wav; base64, {base64_audio}" controls autoplay>'
-        st.markdown(audio_html, unsafe_allow_html=True)
+    st.markdown("**PLAYING RESPONSE:**")
+    st.markdown(audio_html, unsafe_allow_html=True)
 
 
 # Setting up image uploading
