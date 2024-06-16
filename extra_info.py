@@ -11,7 +11,7 @@ describing the image. Example:
 The blind person has the following query about their real-time surroundings: {user_query}
 """
 
-google_api_key = 'AIzaSyDfVrAN1Wn0OfGGYC7jqB9xhOoCqv4837U'
+google_api_key = '' # Put your API key in here
 
 description = """This project aims to create a dummy prototype of a vision system that enables visually impaired people to see.
 Attach an image of a real-life scenario and ask questions about it through audio input and receive answers as audio
