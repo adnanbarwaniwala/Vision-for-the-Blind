@@ -5,7 +5,7 @@ Vision for the Blind is an innovative application designed to prototype, on a mu
 ## Table of Contents
 
 - [Features](#Features)
-- [Project Structure](#project-structure)
+- [Project Structure](#Project-Structure)
 - [How It Works](#how-it-works)
 - [Contact](#contact)
 
