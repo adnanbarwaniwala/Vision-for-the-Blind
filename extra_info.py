@@ -13,7 +13,7 @@ The blind person has the following query about their real-time surroundings: {us
 
 google_api_key = 'AIzaSyDfVrAN1Wn0OfGGYC7jqB9xhOoCqv4837U'
 
-description = """This project aims to create a dummy prototype of a vision system that enables blind people to see.
+description = """This project aims to create a dummy prototype of a vision system that enables visually impaired people to see.
 Attach an image of a real-life scenario and ask questions about it through audio input and receive answers as audio
 output. This project replicates, on a much simpler scale, the AI systems in glasses for visually impaired people that 
 help them to gain a sense of their surroundings.
