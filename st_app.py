@@ -12,6 +12,7 @@ from pydub import AudioSegment
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import HumanMessage, AIMessage
 from extra_info import vision_model_system_prompt, description
+import espeakng
 
 # Setting the page title
 st.set_page_config(
@@ -61,8 +62,6 @@ def ask_model_about_surroundings(query, image_url):
 
 
 def model_response_to_audio(response):
-    from phonemizer.backend.espeak.wrapper import EspeakWrapper
-    EspeakWrapper.set_library("C:\Program Files\eSpeak NG\libespeak-ng.dll")
     with st.spinner('Converting response to audio...'):
         model = VitsModel.from_pretrained("kakao-enterprise/vits-ljs")
         tokenizer = AutoTokenizer.from_pretrained("kakao-enterprise/vits-ljs")
