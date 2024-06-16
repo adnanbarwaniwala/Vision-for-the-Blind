@@ -20,36 +20,6 @@ Vision for the Blind is an innovative application designed to prototype, on a mu
 - **Text-to-Speech**: The application converts the model’s responses into audio, providing an auditory output making it suitable for the visually impaired.
 - **Interactive Chat History**: View and interact with the history of queries and responses.
 
-## Installation
-
-Follow these steps to set up the project locally:
-
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/adnanbarwaniwala/Vision-for-the-Blind.git
-    cd Vision-for-the-Blind
-    ```
-
-2. **Create and activate a virtual environment**:
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-    ```
-
-3. **Install the required dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-## Usage
-
-To run the application, execute the following command:
-```bash
-streamlit run st_app.py
-```
-
-Navigate to `http://localhost:8501` in your web browser to access the application.
-
 ## Project Structure
 
 ```
