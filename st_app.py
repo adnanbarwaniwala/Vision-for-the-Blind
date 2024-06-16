@@ -13,6 +13,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import HumanMessage, AIMessage
 from extra_info import vision_model_system_prompt, description
 import pyttsx3
+import os
 
 # Setting the page title
 st.set_page_config(
