@@ -11,7 +11,7 @@ import librosa
 from pydub import AudioSegment
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import HumanMessage, AIMessage
-from extra_info import vision_model_system_prompt, google_api_key, description
+from extra_info import vision_model_system_prompt, description
 
 # Setting the page title
 st.set_page_config(
@@ -23,6 +23,7 @@ st.title('Vision for the Blind :eyes:')
 with st.expander('Project Description'):
     st.markdown(f"_{description.strip()}_")
 
+google_api_key = st.secrets['general']['google_api_key']
 
 def del_msgs():
     if 'messages' in st.session_state:
