@@ -21,7 +21,7 @@ Vision for the Blind is an innovative application designed to prototype, on a mu
 ```
 Vision-for-the-Blind/
 │
-├── extra_info.py        # Contains the prompt, project description and API key
+├── extra_info.py        # Contains the prompt and project description
 ├── st_app.py            # Main Streamlit application
 ├── requirements.txt     # Python dependencies
 └── README.md            # Project README file
