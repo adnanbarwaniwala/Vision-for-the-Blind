@@ -1,5 +1,5 @@
 streamlit
-st-audiorec
+git+https://github.com/stefanrmmr/streamlit-audio-recorder.git
 streamlit-chat
 Pillow
 transformers
