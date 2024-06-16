@@ -4,11 +4,9 @@ Vision for the Blind is an innovative application designed to prototype, on a mu
 
 ## Table of Contents
 
-- [Features](#features)
+- [Features](#Features)
 - [Project Structure](#project-structure)
 - [How It Works](#how-it-works)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## Features
@@ -21,13 +19,12 @@ Vision for the Blind is an innovative application designed to prototype, on a mu
 ## Project Structure
 
 ```
-vision-for-the-blind/
+Vision-for-the-Blind/
 │
 ├── extra_info.py        # Contains the prompt, project description and API key
 ├── st_app.py            # Main Streamlit application
 ├── requirements.txt     # Python dependencies
-├── README.md            # Project README file
-└── images/              # Directory for storing images
+└── README.md            # Project README file
 ```
 
 ## How It Works
@@ -45,14 +42,6 @@ vision-for-the-blind/
 - **ask_model_about_surroundings**: Queries the vision model to describe the image.
 - **model_response_to_audio**: Converts the model’s text response to audio.
 - **autoplay_audio**: Automatically plays the generated audio response.
-
-## Contributing
-
-Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) to get started.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
