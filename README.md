@@ -26,8 +26,8 @@ Follow these steps to set up the project locally:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/vision-for-the-blind.git
-    cd vision-for-the-blind
+    git clone https://github.com/adnanbarwaniwala/Vision-for-the-Blind.git
+    cd Vision-for-the-Blind
     ```
 
 2. **Create and activate a virtual environment**:
