@@ -1,0 +1,16 @@
+streamlit
+st-audiorec
+streamlit-chat
+Pillow
+transformers
+torch
+soundfile
+numpy
+wave
+librosa
+pydub
+langchain-google-genai
+langchain
+timm
+inflect
+phonemizer
