@@ -12,7 +12,7 @@ from pydub import AudioSegment
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import HumanMessage, AIMessage
 from extra_info import vision_model_system_prompt, description
-import subprocess
+import pyttsx3
 
 # Setting the page title
 st.set_page_config(
@@ -63,27 +63,9 @@ def ask_model_about_surroundings(query, image_url):
 
 def model_response_to_audio(response):
     with st.spinner('Converting response to audio...'):
-        from phonemizer.backend.espeak.wrapper import EspeakWrapper
-    # Set the library path dynamically (you might need to adjust the path based on your environment)
-        result = subprocess.run(['which', 'espeak'], stdout=subprocess.PIPE)
-        espeak_path = result.stdout.decode('utf-8').strip()
-        EspeakWrapper.set_library(espeak_path)
-        model = VitsModel.from_pretrained("kakao-enterprise/vits-ljs")
-        tokenizer = AutoTokenizer.from_pretrained("kakao-enterprise/vits-ljs")
-        inputs = tokenizer(response, return_tensors="pt")
-        with torch.no_grad():
-            output = model(**inputs).waveform
-
-        output_numpy = output.cpu().numpy()
-        # Scale the data to 16-bit PCM format
-        output_numpy = np.int16(output_numpy / np.max(np.abs(output_numpy)) * 32767)
-        sample_rate = model.config.sampling_rate
-        # Save the generated audio to a file using the wave library
-        with wave.open('model_response.wav', 'w') as wf:
-            wf.setnchannels(1)  # Set the number of channels
-            wf.setsampwidth(2)  # Set the sample width to 2 bytes (16 bits)
-            wf.setframerate(sample_rate)  # Set the sample rate
-            wf.writeframes(output_numpy.tobytes())  # Write the audio data to the file
+        engine = pyttsx3.init()
+        engine.save_to_file(response, 'model_response.wav')
+        engine.runAndWait()
     st.markdown("**AUDIO GENERATED**")
     st.write(f"{'*' * 80}")
 
