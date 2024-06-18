@@ -64,10 +64,15 @@ def model_response_to_audio(response):
     from elevenlabs.client import ElevenLabs
     client = ElevenLabs(api_key=st.secrets['general']['elevenlabs_api_key'])
     with st.spinner('Converting response to audio...'):
-        audio_generator = client.generate(text=response, voice="Rachel", model="eleven_multilingual_v2")
-        audio_buffer = io.BytesIO()
-        for chunk in audio_generator:
-            audio_buffer.write(chunk)
+        try:
+            audio_generator = client.generate(text=response, voice="Rachel", model="eleven_multilingual_v2")
+            audio_buffer = io.BytesIO()
+            for chunk in audio_generator:
+                audio_buffer.write(chunk)
+        except Exception:
+            st.write("The text-to-speech (tts) API character quota has been reached. Unfortunately you'll only be",
+                     "to use the tts ability of the app next month now. Sorry for the inconvenience!!")
+            return "error"
     st.markdown("**AUDIO GENERATED**")
     st.write(f"{'*' * 80}")
     audio_buffer.seek(0)
@@ -75,13 +80,16 @@ def model_response_to_audio(response):
 
 
 def autoplay_audio(audio_buffer):
-    import base64
-    with st.spinner('Final audio processing...'):
-        audio_bytes = audio_buffer.read()
-        base64_audio = base64.b64encode(audio_bytes).decode("utf-8")
-        audio_html = f'<audio src="data:audio/mp3;base64,{base64_audio}" controls autoplay>'
-    st.markdown("**PLAYING RESPONSE:**")
-    st.markdown(audio_html, unsafe_allow_html=True)
+    if audio_buffer != "error":
+        import base64
+        with st.spinner('Final audio processing...'):
+            audio_bytes = audio_buffer.read()
+            base64_audio = base64.b64encode(audio_bytes).decode("utf-8")
+            audio_html = f'<audio src="data:audio/mp3;base64,{base64_audio}" controls autoplay>'
+        st.markdown("**PLAYING RESPONSE:**")
+        st.markdown(audio_html, unsafe_allow_html=True)
+    else:
+        return
 
 
 with st.sidebar:
