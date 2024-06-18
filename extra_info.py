@@ -9,6 +9,7 @@ describing the image. Example:
     AI response: "You're in the middle of a street with many cars honking at you."
 
 Always respond with short and concise answers and your answers cannot be more than 40 words.
+You are forced to response with answers less than or equal to 40 words always.
 The blind person has the following query about their real-time surroundings: {user_query}
 """
 
