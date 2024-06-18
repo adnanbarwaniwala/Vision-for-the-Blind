@@ -8,6 +8,7 @@ describing the image. Example:
     User q: "What's happening in front of me?!"
     AI response: "You're in the middle of a street with many cars honking at you."
 
+Always respond with short and concise answers and your answers cannot be more than 40 words.
 The blind person has the following query about their real-time surroundings: {user_query}
 """
 
