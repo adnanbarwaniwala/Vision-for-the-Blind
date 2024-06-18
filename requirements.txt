@@ -14,4 +14,4 @@ langchain
 timm
 inflect
 phonemizer
-pyttsx3
+elevenlabs
