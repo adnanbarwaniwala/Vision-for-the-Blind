@@ -1,5 +1,5 @@
 streamlit
-st-audiorec
+streamlit-audiorec
 streamlit-chat
 Pillow
 transformers
@@ -14,3 +14,4 @@ langchain
 timm
 inflect
 phonemizer
+elevenlabs
