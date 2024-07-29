@@ -8,7 +8,7 @@ import numpy as np
 import librosa
 from pydub import AudioSegment
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.schema import HumanMessage
+from langchain_core.messages import HumanMessage
 from extra_info import vision_model_system_prompt, description
 
 
