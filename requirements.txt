@@ -10,7 +10,7 @@ wave
 librosa
 pydub
 langchain-google-genai
-langchain
+langchain_core
 timm
 inflect
 phonemizer
