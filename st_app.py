@@ -45,7 +45,7 @@ def speech_to_text(path):
 
 def ask_model_about_surroundings(query, image_url):
     with st.spinner('Querying vision model...'):
-        llm = ChatGoogleGenerativeAI(model='gemini-pro-vision', google_api_key=google_api_key)
+        llm = ChatGoogleGenerativeAI(model='gemini-1.5-flash', google_api_key=google_api_key)
         messages = [
             HumanMessage(content=[
                 {'type': 'text', 'text': vision_model_system_prompt.format(user_query=query)},
@@ -65,7 +65,7 @@ def model_response_to_audio(response):
     client = ElevenLabs(api_key=st.secrets['general']['elevenlabs_api_key'])
     with st.spinner('Converting response to audio...'):
         try:
-            audio_generator = client.generate(text=response, voice="Rachel", model="eleven_multilingual_v2")
+            audio_generator = client.generate(text=response, voice="Jessica", model="eleven_multilingual_v2")
             audio_buffer = io.BytesIO()
             for chunk in audio_generator:
                 audio_buffer.write(chunk)
