@@ -1,6 +1,5 @@
 # Vision for the Blind
-
-Vision for the Blind is an innovative application designed to prototype, on a much simpler scale, AI systems in glasses for visually impaired users that provide audio responses about the user's surroundings. This project leverages the power of AI models and Streamlit to create an interactive and accessible experience.
+Vision for the Blind is an AI-powered application designed to assist visually impaired individuals by providing real-time audio descriptions of their surroundings. Users can take pictures of their surroundings and upload the picture, then ask questions about it. The application uses advanced AI models to understand the user's question and surroundings to produce instant, informative audio responses that answer the question. It uses Streamlit to create an interactive and accessible experience. Its aim is to make visually impaired people more independent and experience the joy we feel by seeing this beautiful world around us.
 
 ## Table of Contents
 
