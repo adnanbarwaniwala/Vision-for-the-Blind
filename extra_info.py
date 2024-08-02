@@ -13,7 +13,6 @@ An example of how you should respond:
 """
 
 description = """Vision for the Blind is an AI-powered application designed to assist visually impaired individuals by providing real-time audio descriptions of 
-their surroundings. Users can take pictures of their surroundings and upload the picture, then ask questions about it. The application uses advanced AI models 
-to understand the user's question and surroundings to produce instant, informative audio responses that answer the question. It aims to make visually 
-impaired people more independent and experience the joy we feel by seeing this beautiful world around us.
+their surroundings. Users can take pictures of their surroundings and upload the picture, then ask questions about it. It uses AI models to produce instant, 
+informative audio responses as answers. It aims to make visually impaired people more independent.
 """
