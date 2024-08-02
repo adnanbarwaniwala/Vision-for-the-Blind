@@ -12,8 +12,8 @@ An example of how you should respond:
     AI response: "You're in the middle of a street with many cars honking at you."
 """
 
-description = """This project aims to create a dummy prototype of a vision system that enables visually impaired people to see.
-Attach an image of a real-life scenario and ask questions about it through audio input and receive answers as audio
-output. This project replicates, on a much simpler scale, the AI systems in glasses for visually impaired people that 
-help them to gain a sense of their surroundings.
+description = """Vision for the Blind is an AI-powered application designed to assist visually impaired individuals by providing real-time audio descriptions of 
+their surroundings. Users can take pictures of their surroundings and upload the picture, then ask questions about it. The application uses advanced AI models 
+to understand the user's question and surroundings to produce instant, informative audio responses that answer the question. Hence, it aims to make visually 
+impaired people more independent and experience the joy we feel by seeing this beautiful world around us.
 """
