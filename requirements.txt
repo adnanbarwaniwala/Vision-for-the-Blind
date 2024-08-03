@@ -2,7 +2,7 @@ streamlit
 streamlit-audiorec
 streamlit-chat
 Pillow
-transformers
+git+https://github.com/huggingface/transformers
 torch
 soundfile
 numpy
