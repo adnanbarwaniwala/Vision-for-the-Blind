@@ -33,7 +33,7 @@ def speech_to_text(path):
     with st.spinner('Converting audio to text...'):
         audio, sampling_rate = sf.read(path)
         asr = pipeline(task="automatic-speech-recognition",
-                       model="distil-whisper/distil-medium.en)
+                       model="distil-whisper/distil-medium.en")
         audio_transposed = np.transpose(audio)
         audio_mono = librosa.to_mono(audio_transposed)
         user_query = asr(audio_mono)
