@@ -54,4 +54,6 @@ For questions or suggestions, please open an issue or contact me directly:
 
 Due to API quotas on the number of characters that can be converted into speech by the `elevenlabs` library, you maybe unable to use the text-to-speech ability if you're using the app website. In such a case, you'll have to wait until next month when the quota is renewed. Sorry for the inconvenience!!
 
+Additionally if you face any errors while running the website, please run the code locally. It will work just fine. Sorry for the incovenience!!
+
 ---
