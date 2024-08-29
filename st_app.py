@@ -31,9 +31,9 @@ def speech_to_text(path):
         # Initialize the Groq client
         client = Groq(api_key=groq_api_key)
         # Open the audio file
-        with open(filename, "rb") as file:
+        with open(path, "rb") as file:
             transcription = client.audio.transcriptions.create(
-                file=(filename, file.read()), 
+                file=(path, file.read()), 
                 model="distil-whisper-large-v3-en",  
                 prompt="Specify context or spelling",  
                 response_format="json",
