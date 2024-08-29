@@ -13,6 +13,7 @@ from extra_info import vision_model_system_prompt, description
 
 
 google_api_key = st.secrets["general"]["google_api_key"]
+groq_api_key = st.secrets['general']['groq_api_key']
 
 st.set_page_config(
     page_title='Vision for the Blind',
