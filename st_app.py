@@ -27,22 +27,22 @@ def del_msgs():
 
 
 def speech_to_text(path):
-   with st.spinner('Converting audio to text...'):
-        # Initialize the Groq client
-        client = Groq(api_key=groq_api_key)
-        # Open the audio file
-        with open(filename, "rb") as file:
-            transcription = client.audio.transcriptions.create(
-                file=(filename, file.read()), 
-                model="distil-whisper-large-v3-en",  
-                prompt="Specify context or spelling",  
-                response_format="json",
-                temperature=0.0
-            )
+    with st.spinner('Converting audio to text...'):
+    # Initialize the Groq client
+    client = Groq(api_key=groq_api_key)
+    # Open the audio file
+    with open(filename, "rb") as file:
+        transcription = client.audio.transcriptions.create(
+            file=(filename, file.read()), 
+            model="distil-whisper-large-v3-en",  
+            prompt="Specify context or spelling",  
+            response_format="json",
+            temperature=0.0
+        )
     st.markdown("_USER QUERY:_")
     st.markdown(f"**_{transcription.text.strip()}_**")
     st.write(f"{'*' * 80}")
-    return transcription.text
+return transcription.text
 
 
 def ask_model_about_surroundings(query, image_url):
