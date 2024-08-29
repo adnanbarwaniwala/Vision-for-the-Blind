@@ -16,3 +16,4 @@ inflect
 phonemizer
 elevenlabs
 tf-keras
+groq
