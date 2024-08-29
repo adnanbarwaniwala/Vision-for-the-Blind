@@ -33,7 +33,7 @@ Vision-for-the-Blind/
 1. **Upload Image**: Upload an image and act as if it's your real-time surroundings.
 2. **Audio Recording**: Start recording your voice to input a question.
 3. **Speech-to-Text**: The recorded audio is converted to text using the `distil-whisper` model.
-4. **Image Analysis**: The text query and uploaded image are processed by the `gemini-pro-vision` model to generate a description.
+4. **Image Analysis**: The text query and uploaded image are processed by the `gemini-flash-1.5` model to generate a description.
 5. **Text-to-Speech**: The response from the model is converted into audio using the `elevenlabs` library.
 6. **Interactive Output**: Both the text and audio responses are displayed and played within the application.
 
