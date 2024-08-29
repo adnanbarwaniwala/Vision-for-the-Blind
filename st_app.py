@@ -2,15 +2,11 @@ import streamlit as st
 from st_audiorec import st_audiorec
 from streamlit_chat import message
 from PIL import Image
-from transformers import pipeline
-import soundfile as sf
-import numpy as np
-import librosa
 from pydub import AudioSegment
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage
 from extra_info import vision_model_system_prompt, description
-
+from groq import Groq
 
 google_api_key = st.secrets["general"]["google_api_key"]
 groq_api_key = st.secrets['general']['groq_api_key']
@@ -31,17 +27,22 @@ def del_msgs():
 
 
 def speech_to_text(path):
-    with st.spinner('Converting audio to text...'):
-        audio, sampling_rate = sf.read(path)
-        asr = pipeline(task="automatic-speech-recognition",
-                       model="distil-whisper/distil-small.en")
-        audio_transposed = np.transpose(audio)
-        audio_mono = librosa.to_mono(audio_transposed)
-        user_query = asr(audio_mono)
+   with st.spinner('Converting audio to text...'):
+        # Initialize the Groq client
+        client = Groq(api_key=groq_api_key)
+        # Open the audio file
+        with open(filename, "rb") as file:
+            transcription = client.audio.transcriptions.create(
+                file=(filename, file.read()), 
+                model="distil-whisper-large-v3-en",  
+                prompt="Specify context or spelling",  
+                response_format="json",
+                temperature=0.0
+            )
     st.markdown("_USER QUERY:_")
-    st.markdown(f"**_{user_query['text'].strip()}_**")
+    st.markdown(f"**_{transcription.text.strip()}_**")
     st.write(f"{'*' * 80}")
-    return user_query['text']
+    return transcription.text
 
 
 def ask_model_about_surroundings(query, image_url):
