@@ -1,6 +1,7 @@
 streamlit
 streamlit-audiorec
 streamlit-chat
+streamlit-player
 Pillow
 torch
 wave
