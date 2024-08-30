@@ -1,6 +1,7 @@
 import streamlit as st
 from st_audiorec import st_audiorec
 from streamlit_chat import message
+from streamlit_player import st_player
 from PIL import Image
 from pydub import AudioSegment
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -107,6 +108,8 @@ with st.sidebar:
         img.save('user_img.png', 'PNG')
     else:
         st.session_state.img_changed = False
+
+    st_player('https://youtu.be/7P2UNti-uXc')
 
 if st.session_state.last_image != '':
     if 'messages' not in st.session_state:
