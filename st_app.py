@@ -100,6 +100,8 @@ with st.sidebar:
         st.session_state.last_image = ''
 
     img = st.file_uploader('Upload an image:', type=['png', 'jpg'])
+    st_player('https://youtu.be/7P2UNti-uXc')
+    
     if img and st.session_state.last_image != img.name:
         del_msgs()
         st.session_state['last_image'] = img.name
@@ -108,8 +110,6 @@ with st.sidebar:
         img.save('user_img.png', 'PNG')
     else:
         st.session_state.img_changed = False
-
-    st_player('https://youtu.be/7P2UNti-uXc')
 
 if st.session_state.last_image != '':
     if 'messages' not in st.session_state:
