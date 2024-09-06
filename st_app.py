@@ -100,7 +100,7 @@ with st.sidebar:
         st.session_state.last_image = ''
 
     img = st.file_uploader('Upload an image:', type=['png', 'jpg'])
-    st_player('https://youtu.be/7P2UNti-uXc')
+    st_player('https://youtu.be/f1m0RJwif8Q')
     
     if img and st.session_state.last_image != img.name:
         del_msgs()
