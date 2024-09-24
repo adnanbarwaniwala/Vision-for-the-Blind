@@ -44,6 +44,10 @@ Vision-for-the-Blind/
 - **model_response_to_audio**: Converts the model’s text response to audio.
 - **autoplay_audio**: Automatically plays the generated audio response.
 
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE.txt) file for details.
+
 ## Contact
 
 For questions or suggestions, please open an issue or contact me directly:
