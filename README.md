@@ -39,7 +39,7 @@ Vision-for-the-Blind/
 
 ### Detailed Explanation of Key Functions:
 
-- **Speech-to-Text**: Converts audio input to text using the `distil-whisper` model.
+- **speech_to_text**: Converts audio input to text using the `distil-whisper` model.
 - **ask_model_about_surroundings**: Queries the vision model to describe the image.
 - **model_response_to_audio**: Converts the model’s text response to audio.
 - **autoplay_audio**: Automatically plays the generated audio response.
