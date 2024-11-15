@@ -1,5 +1,5 @@
 # VisionForTheBlind
-VisionForTheBlind is an AI-powered application designed to assist visually impaired individuals by providing real-time audio descriptions of their surroundings. Users can take pictures of their surroundings and upload the picture, then ask questions about it. The application uses advanced AI models to understand the user's question and surroundings to produce instant, informative audio responses that answer the question. It uses Streamlit to create an interactive and accessible experience. It aims to make visually impaired people more independent and experience the joy we feel by seeing this beautiful world around us.
+VisionForTheBlind is an AI-powered application designed to assist visually impaired individuals by providing audio descriptions of their real-time surroundings. Users can take pictures of their surroundings and upload the picture, then ask questions about it. The application uses advanced AI models to understand the user's question and surroundings to produce instant, informative audio responses that answer the question. It uses Streamlit to create an interactive and accessible experience. It aims to make visually impaired people more independent and experience the joy we feel by seeing this beautiful world around us.
 
 ## Table of Contents
 
