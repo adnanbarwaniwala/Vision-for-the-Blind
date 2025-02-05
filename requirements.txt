@@ -6,8 +6,6 @@ Pillow
 torch
 wave
 pydub
-langchain-google-genai
-langchain_core
 timm
 inflect
 phonemizer
