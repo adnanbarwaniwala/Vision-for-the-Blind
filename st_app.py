@@ -20,7 +20,7 @@ with st.expander('Project Description'):
     st.markdown(f"_{description.strip()}_")
 
 st.info("If you don't get a proper answer, please be more specific in your query"
-        "and try again.", icon="ℹ️")
+        " and try again.", icon="ℹ️")
 
 def del_msgs():
     if 'messages' in st.session_state:
