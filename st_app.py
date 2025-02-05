@@ -4,12 +4,10 @@ from streamlit_chat import message
 from streamlit_player import st_player
 from PIL import Image
 from pydub import AudioSegment
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.messages import HumanMessage
-from extra_info import vision_model_system_prompt, description
+from extra_info import *
 from groq import Groq
+import base64
 
-google_api_key = st.secrets["general"]["google_api_key"]
 groq_api_key = st.secrets['general']['groq_api_key']
 
 st.set_page_config(
@@ -34,9 +32,9 @@ def speech_to_text(path):
         # Open the audio file
         with open(path, "rb") as file:
             transcription = client.audio.transcriptions.create(
-                file=(path, file.read()), 
-                model="distil-whisper-large-v3-en",  
-                prompt="Specify context or spelling",  
+                file=(path, file.read()),
+                model="distil-whisper-large-v3-en",
+                prompt="Specify context or spelling",
                 response_format="json",
                 temperature=0.0
             )
@@ -46,17 +44,56 @@ def speech_to_text(path):
     return transcription.text
 
 
-def ask_model_about_surroundings(query, image_url):
-    with st.spinner('Querying vision model...'):
-        llm = ChatGoogleGenerativeAI(model='gemini-1.5-flash', google_api_key=google_api_key)
-        messages = [
-            HumanMessage(content=[
-                {'type': 'text', 'text': vision_model_system_prompt.format(user_query=query)},
-                {'type': 'image_url', 'image_url': image_url}
-            ])
-        ]
-        response = llm.invoke(messages).content
-    st.markdown("_MODEL RESPONSE:_")
+def ask_model_about_surroundings(query, image_path):
+    with st.spinner('Querying vision model for scene description...'):
+        def encode_image(path):
+            with open(path, "rb") as image_file:
+                return base64.b64encode(image_file.read()).decode('utf-8')
+
+        # Getting the base64 string
+        base64_image = encode_image(image_path)
+        client = Groq(api_key=groq_api_key)
+        # FIRST MODEL
+        chat_completion = client.chat.completions.create(
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": vision_model_prompt.format(query)},
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": f"data:image/jpeg;base64,{base64_image}",
+                            },
+                        },
+                    ],
+                }
+            ],
+            model="llama-3.2-90b-vision-preview",
+        )
+        vision_model_response = chat_completion.choices[0].message.content
+
+    st.markdown("_VISION MODEL RESPONSE:_")
+    st.markdown(f"**_{vision_model_response.strip()}_**")
+    st.write(f"{'*' * 80}")
+
+    with st.spinner('Querying llm for final answer...'):
+        chat_completion = client.chat.completions.create(
+            messages=[
+                {
+                    "role": "user",
+                    "content": second_model_prompt.format(query, vision_model_response),
+                }
+            ],
+            model="llama-3.3-70b-versatile",
+            temperature=0.5,
+            top_p=1,
+            stop=None,
+            stream=False,
+        )
+        response = chat_completion.choices[0].message.content
+
+    st.markdown("_LLM RESPONSE:_")
     st.markdown(f"**_{response.strip()}_**")
     st.write(f"{'*' * 80}")
     return response
@@ -101,7 +138,7 @@ with st.sidebar:
 
     img = st.file_uploader('Upload an image:', type=['png', 'jpg'])
     st_player('https://youtu.be/f1m0RJwif8Q')
-    
+
     if img and st.session_state.last_image != img.name:
         del_msgs()
         st.session_state['last_image'] = img.name
@@ -134,7 +171,7 @@ if st.session_state.last_image != '':
             user_query = speech_to_text(path='user_input.wav')
             st.session_state.messages.append(user_query)
 
-            model_response = ask_model_about_surroundings(user_query, image_url='user_img.png')
+            model_response = ask_model_about_surroundings(user_query, image_path='user_img.png')
             st.session_state.messages.append(model_response)
 
             autoplay_audio(model_response_to_audio(model_response))
