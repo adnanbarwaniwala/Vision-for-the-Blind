@@ -48,10 +48,6 @@ Vision-for-the-Blind/
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE.txt) file for details.
 
-## Contributors ✨
-- [Adnan Barwaniwala](https://github.com/adnanbarwaniwala) – Original repository creator; Co-developer.
-- [Taher Panbiharwala](https://github.com/TaherPanbiharwala) – Co-developer.
-
 ## Contact
 
 For questions or suggestions, please open an issue or contact me directly:
